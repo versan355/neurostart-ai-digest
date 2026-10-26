@@ -324,7 +324,12 @@
           </div>
 
           <div class="subscribe-action">
-            <form class="subscribe-form" action="{{ url_for('subscribe') }}" method="post">
+            <form
+              class="subscribe-form"
+              action="{% if static_mode %}#subscribe{% else %}{{ url_for('subscribe') }}{% endif %}"
+              method="post"
+              {% if static_mode %}data-static-form{% endif %}
+            >
               <label class="sr-only" for="email">Ваш email</label>
               <input
                 id="email"
@@ -337,16 +342,28 @@
               <button class="btn btn-primary" type="submit">Подписаться</button>
             </form>
 
-            <p class="form-note">
-              Демо-режим: адрес сохранится в файл <code>subscribers.txt</code>
-              на вашем компьютере. Никаких писем и передачи данных.
-            </p>
+            {% if static_mode %}
+              <p class="form-note">
+                Это статическая версия на GitHub Pages. Форма показывает, как всё
+                выглядит, но адрес никуда не отправляется. Подписка работает
+                в локальной версии на Flask.
+              </p>
 
-            {% with messages = get_flashed_messages(with_categories=true) %}
-              {% for category, message in messages %}
-                <p class="flash flash-{{ category }}" role="status">{{ message }}</p>
-              {% endfor %}
-            {% endwith %}
+              <p class="flash flash-success" id="staticFormMessage" role="status" hidden>
+                Спасибо! Это демонстрация: в статической версии адрес не сохраняется.
+              </p>
+            {% else %}
+              <p class="form-note">
+                Демо-режим: адрес сохранится в файл <code>subscribers.txt</code>
+                на вашем компьютере. Никаких писем и передачи данных.
+              </p>
+
+              {% with messages = get_flashed_messages(with_categories=true) %}
+                {% for category, message in messages %}
+                  <p class="flash flash-{{ category }}" role="status">{{ message }}</p>
+                {% endfor %}
+              {% endwith %}
+            {% endif %}
           </div>
         </div>
       </div>

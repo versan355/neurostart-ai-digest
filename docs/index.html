@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07060c">
+  <meta name="description" content="НЕЙРОСТАРТ — AI-дайджест для новичков. Десять понятных материалов об искусственном интеллекте: инструменты, гайды и курсы без паники и лишних терминов.">
+  <title>НЕЙРОСТАРТ — AI-дайджест для новичков</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23c8ff4d'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='27' font-weight='bold' text-anchor='middle' fill='%2307060c'%3EAI%3C/text%3E%3C/svg%3E">
+
+  <!-- Шрифты: Unbounded для заголовков, Manrope для текста -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/style.css">
+  <noscript>
+    <style>.reveal { opacity: 1 !important; }</style>
+  </noscript>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <!-- Полоса прогресса чтения сверху -->
+  <div class="progress" aria-hidden="true">
+    <span id="progressBar"></span>
+  </div>
+
+  <!-- Фон: цветные пятна, сетка и зерно. Ни на что не влияет. -->
+  <div class="backdrop" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-lines"></div>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="НЕЙРОСТАРТ — на главную">
+        <span class="brand-mark">AI</span>
+        <span class="brand-name">нейростарт</span>
+      </a>
+
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#digest">Дайджест</a>
+        <a href="#route">Маршрут</a>
+        <a href="#subscribe">Подписка</a>
+      </nav>
+
+      <a class="btn btn-small btn-ghost header-cta" href="#subscribe">Подписаться</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= ГЕРОЙ ================= -->
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            AI-дайджест · выпуск 01 · 26 октября 2026
+          </p>
+
+          <h1 class="hero-title">
+            ИИ без паники.
+            <span class="line-2 grad-text">Одна карточка за раз.</span>
+          </h1>
+
+          <p class="hero-lead">
+            Десять проверенных материалов, которые объясняют нейросети человеческим
+            языком. Без кода, без терминов на сорок слайдов и без «революции, которая
+            всё изменит».
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#digest">
+              Смотреть дайджест
+              <span aria-hidden="true">↓</span>
+            </a>
+            <a class="btn btn-ghost" href="#route">С чего начать</a>
+          </div>
+
+          <dl class="hero-stats">
+            <div class="stat">
+              <dt>материалов</dt>
+              <dd>10</dd>
+            </div>
+            <div class="stat">
+              <dt>на карточку</dt>
+              <dd>≈ 5 мин</dd>
+            </div>
+            <div class="stat">
+              <dt>опыта нужно</dt>
+              <dd>0</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Декоративная орбита справа. На телефоне скрывается. -->
+        <div class="orbit" aria-hidden="true">
+          <div class="orbit-ring ring-1"></div>
+          <div class="orbit-ring ring-2"></div>
+          <div class="orbit-ring ring-3"></div>
+
+          <div class="orbit-spin">
+            <span class="orbit-dot dot-lime"></span>
+            <span class="orbit-dot dot-pink"></span>
+            <span class="orbit-dot dot-cyan"></span>
+          </div>
+
+          <div class="orbit-core">
+            <span class="orbit-ai">AI</span>
+            <small>выпуск 01</small>
+          </div>
+
+          <span class="orbit-tag tag-1">промпты</span>
+          <span class="orbit-tag tag-2">инструменты</span>
+          <span class="orbit-tag tag-3">курсы</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ВЫБОР РЕДАКЦИИ ================= -->
+    <section class="featured-section">
+      <div class="container">
+        <article class="featured-card reveal accent-lime">
+          <div class="featured-glow" aria-hidden="true"></div>
+
+          <div class="featured-copy">
+            <p class="featured-label">
+              <span aria-hidden="true">★</span> Выбор редакции
+            </p>
+
+            <h2 class="featured-title">Промпт-инжиниринг: полный гайд на русском</h2>
+            <p class="featured-desc">Лучший бесплатный учебник по общению с ИИ: от простых вопросов до цепочек рассуждений, с примерами на русском. Прочитайте вводную и главу о техниках — этого хватит, чтобы получать заметно лучшие ответы уже сегодня.</p>
+
+            <div class="featured-meta">
+              <span>25 минут чтения</span>
+              <span class="meta-dot" aria-hidden="true"></span>
+              <span>База</span>
+              <span class="meta-dot" aria-hidden="true"></span>
+              <span>бесплатно</span>
+            </div>
+
+            <ul class="tags">
+              
+                <li>промпты</li>
+              
+                <li>ChatGPT</li>
+              
+                <li>практика</li>
+              
+            </ul>
+
+            <a class="btn btn-primary" href="https://www.promptingguide.ai/ru" target="_blank" rel="noopener noreferrer">
+              Открыть материал
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <!-- Пример диалога с ИИ — просто красивая иллюстрация -->
+          <div class="prompt-demo" aria-hidden="true">
+            <div class="demo-bar">
+              <span></span><span></span><span></span>
+              <em>promptingguide.ai</em>
+            </div>
+
+            <div class="demo-body">
+              <div class="demo-msg">
+                <span class="demo-avatar demo-avatar-user">Вы</span>
+                <p>Объясни, как работает нейросеть, за три предложения. Без терминов.</p>
+              </div>
+
+              <div class="demo-msg">
+                <span class="demo-avatar demo-avatar-ai">AI</span>
+                <p>
+                  Она учится на примерах: миллионы текстов помогают ей замечать, какое
+                  слово обычно идёт следом. В ответ на вопрос она собирает самое
+                  вероятное продолжение. Поэтому звучит уверенно — даже когда ошибается.
+                </p>
+              </div>
+            </div>
+
+            <div class="demo-typing">
+              <i></i><i></i><i></i>
+              <span>проверьте факты</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= ДАЙДЖЕСТ ================= -->
+    <section class="digest" id="digest">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-label"><span aria-hidden="true">01</span> Дайджест</p>
+            <h2>Девять материалов,<br>с которых стоит начать</h2>
+          </div>
+          <p class="section-note">
+            Все ссылки ведут на бесплатные первоисточники.<br>
+            Мы не получаем комиссию за переходы.
+          </p>
+        </div>
+
+        <!-- Кнопки-фильтры. Работают на JavaScript, без перезагрузки. -->
+        <div class="filters reveal">
+          <div class="filter-group" role="group" aria-label="Фильтр материалов по типу">
+            
+              <button
+                class="filter is-active"
+                type="button"
+                data-filter="all"
+                aria-pressed="true"
+              >
+                Все
+                <span class="filter-count">9</span>
+              </button>
+            
+              <button
+                class="filter"
+                type="button"
+                data-filter="tools"
+                aria-pressed="false"
+              >
+                Инструменты
+                <span class="filter-count">4</span>
+              </button>
+            
+              <button
+                class="filter"
+                type="button"
+                data-filter="guides"
+                aria-pressed="false"
+              >
+                Гайды
+                <span class="filter-count">2</span>
+              </button>
+            
+              <button
+                class="filter"
+                type="button"
+                data-filter="courses"
+                aria-pressed="false"
+              >
+                Курсы
+                <span class="filter-count">3</span>
+              </button>
+            
+          </div>
+
+          <p class="filter-status" aria-live="polite">
+            Показано <span id="visibleCount">9</span> из 9
+          </p>
+        </div>
+
+        <div class="cards" id="cardsGrid">
+          
+            <article
+              class="card reveal accent-lime"
+              data-category="tools"
+              style="--delay: 0ms"
+            >
+              <div class="card-top">
+                <span class="chip">Инструмент</span>
+                <span class="card-num">01</span>
+              </div>
+
+              <h3 class="card-title">ChatGPT: первый диалог</h3>
+              <p class="card-desc">Самый простой вход в мир ИИ: чат, который пишет, объясняет и спорит. Начните со своей настоящей задачи — например, попросите переписать письмо короче.</p>
+
+              <ul class="tags">
+                
+                  <li>чат</li>
+                
+                  <li>тексты</li>
+                
+                  <li>старт</li>
+                
+              </ul>
+
+              <div class="card-footer">
+                <span class="card-meta">10 минут · Новичок</span>
+                <a class="card-link" href="https://chatgpt.com" target="_blank" rel="noopener noreferrer">
+                  Открыть материал
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </article>
+          
+            <article
+              class="card reveal accent-pink"
+              data-category="tools"
+              style="--delay: 70ms"
+            >
+              <div class="card-top">
+                <span class="chip">Инструмент</span>
+                <span class="card-num">02</span>
+              </div>
+
+              <h3 class="card-title">Claude: длинные тексты</h3>
+              <p class="card-desc">Спокойный ассистент, который хорошо держит большой контекст. Удобен, когда нужно разобрать договор, конспект или статью на двадцать страниц.</p>
+
+              <ul class="tags">
+                
+                  <li>документы</li>
+                
+                  <li>анализ</li>
+                
+              </ul>
+
+              <div class="card-footer">
+                <span class="card-meta">12 минут · Новичок</span>
+                <a class="card-link" href="https://claude.ai" target="_blank" rel="noopener noreferrer">
+                  Открыть материал
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </article>
+          
+            <article
+              class="card reveal accent-cyan"
+              data-category="tools"
+              style="--delay: 140ms"
+            >
+              <div class="card-top">
+                <span class="chip">Инструмент</span>
+                <span class="card-num">03</span>
+              </div>
+
+              <h3 class="card-title">NotebookLM: ИИ по вашим файлам</h3>
+              <p class="card-desc">Загрузите конспекты или PDF — и получите ответы строго по своим материалам, со ссылками на страницы. Лучший способ учиться, не доверяя ИИ на слово.</p>
+
+              <ul class="tags">
+                
+                  <li>учёба</li>
+                
+                  <li>PDF</li>
+                
+                  <li>источники</li>
+                
+              </ul>
+
+              <div class="card-footer">
+                <span class="card-meta">8 минут · Новичок</span>
+                <a class="card-link" href="https://notebooklm.google.com" target="_blank" rel="noopener noreferrer">
+                  Открыть материал
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </article>
+          
+            <article
+              class="card reveal accent-violet"
+              data-category="tools"
+              style="--delay: 0ms"
+            >
+              <div class="card-top">
+                <span class="chip">Инструмент</span>
+                <span class="card-num">04</span>
+              </div>
+
+              <h3 class="card-title">Perplexity: поиск с источниками</h3>
+              <p class="card-desc">Поисковик, который сам читает ссылки и показывает, откуда взял ответ. Хорошая замена обычному поиску, когда важны факты, а не красивые формулировки.</p>
+
+              <ul class="tags">
+                
+                  <li>поиск</li>
+                
+                  <li>факты</li>
+                
+              </ul>
+
+              <div class="card-footer">
+                <span class="card-meta">7 минут · Новичок</span>
+                <a class="card-link" href="https://www.perplexity.ai" target="_blank" rel="noopener noreferrer">
+                  Открыть материал
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </article>
+          
+            <article
+              class="card reveal accent-cyan"
+              data-category="guides"
+              style="--delay: 70ms"
+            >
+              <div class="card-top">
+                <span class="chip">Гайд</span>
+                <span class="card-num">05</span>
+              </div>
+
+              <h3 class="card-title">Стратегии промптов от Google</h3>
+              <p class="card-desc">Официальный гид: как ставить задачу, чтобы модель не угадывала. Примеры рабочих промптов и разбор типичных ошибок — без воды и мотивации.</p>
+
+              <ul class="tags">
+                
+                  <li>промпты</li>
+                
+                  <li>практика</li>
+                
+              </ul>
+
+              <div class="card-footer">
+                <span class="card-meta">15 минут · База</span>
+                <a class="card-link" href="https://ai.google.dev/gemini-api/docs/prompting-strategies" target="_blank" rel="noopener noreferrer">
+                  Открыть материал
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </article>
+          
+            <article
+              class="card reveal accent-lime"
+              data-category="guides"
+              style="--delay: 140ms"
+            >
+              <div class="card-top">
+                <span class="chip">Гайд</span>
+                <span class="card-num">06</span>
+              </div>
+
+              <h3 class="card-title">Prompt engineering от OpenAI</h3>
+              <p class="card-desc">Короткая методичка: структура промпта, роли, примеры. Полезна, если хочется перейти от «напиши текст» к результатам, которые можно предсказать.</p>
+
+              <ul class="tags">
+                
+                  <li>промпты</li>
+                
+                  <li>OpenAI</li>
+                
+              </ul>
+
+              <div class="card-footer">
+                <span class="card-meta">20 минут · База</span>
+                <a class="card-link" href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noopener noreferrer">
+                  Открыть материал
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </article>
+          
+            <article
+              class="card reveal accent-violet"
+              data-category="courses"
+              style="--delay: 0ms"
+            >
+              <div class="card-top">
+                <span class="chip">Курс</span>
+                <span class="card-num">07</span>
+              </div>
+
+              <h3 class="card-title">Elements of AI: основы бесплатно</h3>
+              <p class="card-desc">Курс университета Хельсинки: что такое ИИ, где он помогает, а где вредит. Без кода и сложной математики — для тех, кто хочет понять, а не заучить.</p>
+
+              <ul class="tags">
+                
+                  <li>основы</li>
+                
+                  <li>бесплатно</li>
+                
+              </ul>
+
+              <div class="card-footer">
+                <span class="card-meta">6 часов · Новичок</span>
+                <a class="card-link" href="https://www.elementsofai.com" target="_blank" rel="noopener noreferrer">
+                  Открыть материал
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </article>
+          
+            <article
+              class="card reveal accent-pink"
+              data-category="courses"
+              style="--delay: 70ms"
+            >
+              <div class="card-top">
+                <span class="chip">Курс</span>
+                <span class="card-num">08</span>
+              </div>
+
+              <h3 class="card-title">Hugging Face: курс по LLM</h3>
+              <p class="card-desc">Пошаговый курс о больших языковых моделях: от токенов до собственных мини-проектов. Для тех, кто уже понял идею и хочет заглянуть под капот.</p>
+
+              <ul class="tags">
+                
+                  <li>LLM</li>
+                
+                  <li>код</li>
+                
+                  <li>Python</li>
+                
+              </ul>
+
+              <div class="card-footer">
+                <span class="card-meta">8 часов · Средний</span>
+                <a class="card-link" href="https://huggingface.co/learn/llm-course/chapter1/1" target="_blank" rel="noopener noreferrer">
+                  Открыть материал
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </article>
+          
+            <article
+              class="card reveal accent-lime"
+              data-category="courses"
+              style="--delay: 140ms"
+            >
+              <div class="card-top">
+                <span class="chip">Курс</span>
+                <span class="card-num">09</span>
+              </div>
+
+              <h3 class="card-title">AI for Everyone: ИИ для работы</h3>
+              <p class="card-desc">Курс Эндрю Ына для не-технарей: как встроить ИИ в процессы и не наделать ошибок. Можно слушать бесплатно, без сертификата.</p>
+
+              <ul class="tags">
+                
+                  <li>работа</li>
+                
+                  <li>стратегия</li>
+                
+              </ul>
+
+              <div class="card-footer">
+                <span class="card-meta">6 часов · Новичок</span>
+                <a class="card-link" href="https://www.coursera.org/learn/ai-for-everyone" target="_blank" rel="noopener noreferrer">
+                  Открыть материал
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </article>
+          
+        </div>
+
+        <p class="empty-state" id="emptyState" hidden>
+          Здесь пока пусто. Выберите другой фильтр.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= МАРШРУТ ================= -->
+    <section class="route" id="route">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-label"><span aria-hidden="true">02</span> Маршрут новичка</p>
+            <h2>Три шага, чтобы<br>перестать бояться</h2>
+          </div>
+          <p class="section-note">
+            Не нужно учиться программировать,<br>
+            чтобы пользоваться ИИ. Достаточно любопытства.
+          </p>
+        </div>
+
+        <div class="steps">
+          <article class="step reveal accent-lime" style="--delay: 0ms">
+            <span class="step-num">01</span>
+            <h3>Выберите один инструмент</h3>
+            <p>
+              ChatGPT, Claude или Gemini. Не все сразу: месяц в одном чате полезнее,
+              чем десять аккаунтов, в которых вы были дважды.
+            </p>
+          </article>
+
+          <article class="step reveal accent-cyan" style="--delay: 80ms">
+            <span class="step-num">02</span>
+            <h3>Дайте ему свою задачу</h3>
+            <p>
+              Не «напиши текст», а «сократи моё письмо клиенту до пяти строк,
+              сохранив даты». Чем конкретнее запрос, тем меньше нужно переделывать.
+            </p>
+          </article>
+
+          <article class="step reveal accent-pink" style="--delay: 160ms">
+            <span class="step-num">03</span>
+            <h3>Проверяйте факты</h3>
+            <p>
+              ИИ уверенно ошибается. Даты, цифры, имена и ссылки всегда сверяйте
+              с первоисточником. Это не недоверие — это гигиена.
+            </p>
+          </article>
+        </div>
+
+        <p class="route-quote reveal">
+          «ИИ — это собеседник, а не оракул. <span>Спрашивайте, спорьте, проверяйте.</span>»
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= ПОДПИСКА ================= -->
+    <section class="subscribe" id="subscribe">
+      <div class="container">
+        <div class="subscribe-panel reveal">
+          <div class="subscribe-copy">
+            <p class="section-label"><span aria-hidden="true">03</span> Подписка</p>
+            <h2>Один выпуск в неделю.<br><span class="grad-text">Пять минут — и вы в теме.</span></h2>
+            <p>
+              Новый инструмент, один приём и одна ошибка, которую лучше не повторять.
+              Без «ИИ заменит всех» и рекламы курсов.
+            </p>
+          </div>
+
+          <div class="subscribe-action">
+            <form
+              class="subscribe-form"
+              action="#subscribe"
+              method="post"
+              data-static-form
+            >
+              <label class="sr-only" for="email">Ваш email</label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              >
+              <button class="btn btn-primary" type="submit">Подписаться</button>
+            </form>
+
+            
+              <p class="form-note">
+                Это статическая версия на GitHub Pages. Форма показывает, как всё
+                выглядит, но адрес никуда не отправляется. Подписка работает
+                в локальной версии на Flask.
+              </p>
+
+              <p class="flash flash-success" id="staticFormMessage" role="status" hidden>
+                Спасибо! Это демонстрация: в статической версии адрес не сохраняется.
+              </p>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= ПОДВАЛ ================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="НЕЙРОСТАРТ — на главную">
+          <span class="brand-mark">AI</span>
+          <span class="brand-name">нейростарт</span>
+        </a>
+        <p>Дайджест для тех, кто начинает — и не хочет утонуть в терминах.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#digest">Дайджест</a>
+        <a href="#route">Маршрут</a>
+        <a href="#subscribe">Подписка</a>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 НЕЙРОСТАРТ · учебный проект на Flask</span>
+        <span>Материалы принадлежат их авторам</span>
+        <a href="#top">Наверх ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>

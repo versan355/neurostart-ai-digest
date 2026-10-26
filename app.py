@@ -181,6 +181,7 @@ def index():
         categories=categories,
         issue_date=ISSUE_DATE,
         year=datetime.now().year,
+        static_mode=app.config.get("STATIC_MODE", False),
     )
 
 

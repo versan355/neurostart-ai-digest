@@ -131,7 +131,36 @@ if ("IntersectionObserver" in window) {
 
 
 /* --------------------------------------------------------------------------
-   5. СВЕЧЕНИЕ ПОД КУРСОРОМ
+   5. ФОРМА В СТАТИЧЕСКОЙ ВЕРСИИ
+   На GitHub Pages нет Flask, поэтому форма только показывает сообщение.
+   На локальном сайте этого блока нет — там форма работает по-настоящему.
+   -------------------------------------------------------------------------- */
+const staticForm = document.querySelector("[data-static-form]");
+
+if (staticForm) {
+  staticForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const emailInput = staticForm.querySelector('input[type="email"]');
+
+    if (!emailInput.checkValidity()) {
+      emailInput.reportValidity();
+      return;
+    }
+
+    const message = document.querySelector("#staticFormMessage");
+
+    if (message) {
+      message.hidden = false;
+    }
+
+    staticForm.reset();
+  });
+}
+
+
+/* --------------------------------------------------------------------------
+   6. СВЕЧЕНИЕ ПОД КУРСОРОМ
    Работает только там, где есть настоящая мышь.
    -------------------------------------------------------------------------- */
 const canHover = window.matchMedia("(hover: hover)").matches;
