@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07060c">
+  <meta name="description" content="НЕЙРОСТАРТ — AI-дайджест для новичков. Десять понятных материалов об искусственном интеллекте: инструменты, гайды и курсы без паники и лишних терминов.">
+  <title>НЕЙРОСТАРТ — AI-дайджест для новичков</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23c8ff4d'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='27' font-weight='bold' text-anchor='middle' fill='%2307060c'%3EAI%3C/text%3E%3C/svg%3E">
+
+  <!-- Шрифты: Unbounded для заголовков, Manrope для текста -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <noscript>
+    <style>.reveal { opacity: 1 !important; }</style>
+  </noscript>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <!-- Полоса прогресса чтения сверху -->
+  <div class="progress" aria-hidden="true">
+    <span id="progressBar"></span>
+  </div>
+
+  <!-- Фон: цветные пятна, сетка и зерно. Ни на что не влияет. -->
+  <div class="backdrop" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-lines"></div>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="НЕЙРОСТАРТ — на главную">
+        <span class="brand-mark">AI</span>
+        <span class="brand-name">нейростарт</span>
+      </a>
+
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#digest">Дайджест</a>
+        <a href="#route">Маршрут</a>
+        <a href="#subscribe">Подписка</a>
+      </nav>
+
+      <a class="btn btn-small btn-ghost header-cta" href="#subscribe">Подписаться</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= ГЕРОЙ ================= -->
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            AI-дайджест · выпуск 01 · {{ issue_date }}
+          </p>
+
+          <h1 class="hero-title">
+            ИИ без паники.
+            <span class="line-2 grad-text">Одна карточка за раз.</span>
+          </h1>
+
+          <p class="hero-lead">
+            Десять проверенных материалов, которые объясняют нейросети человеческим
+            языком. Без кода, без терминов на сорок слайдов и без «революции, которая
+            всё изменит».
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#digest">
+              Смотреть дайджест
+              <span aria-hidden="true">↓</span>
+            </a>
+            <a class="btn btn-ghost" href="#route">С чего начать</a>
+          </div>
+
+          <dl class="hero-stats">
+            <div class="stat">
+              <dt>материалов</dt>
+              <dd>10</dd>
+            </div>
+            <div class="stat">
+              <dt>на карточку</dt>
+              <dd>≈ 5 мин</dd>
+            </div>
+            <div class="stat">
+              <dt>опыта нужно</dt>
+              <dd>0</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Декоративная орбита справа. На телефоне скрывается. -->
+        <div class="orbit" aria-hidden="true">
+          <div class="orbit-ring ring-1"></div>
+          <div class="orbit-ring ring-2"></div>
+          <div class="orbit-ring ring-3"></div>
+
+          <div class="orbit-spin">
+            <span class="orbit-dot dot-lime"></span>
+            <span class="orbit-dot dot-pink"></span>
+            <span class="orbit-dot dot-cyan"></span>
+          </div>
+
+          <div class="orbit-core">
+            <span class="orbit-ai">AI</span>
+            <small>выпуск 01</small>
+          </div>
+
+          <span class="orbit-tag tag-1">промпты</span>
+          <span class="orbit-tag tag-2">инструменты</span>
+          <span class="orbit-tag tag-3">курсы</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ВЫБОР РЕДАКЦИИ ================= -->
+    <section class="featured-section">
+      <div class="container">
+        <article class="featured-card reveal accent-lime">
+          <div class="featured-glow" aria-hidden="true"></div>
+
+          <div class="featured-copy">
+            <p class="featured-label">
+              <span aria-hidden="true">★</span> {{ featured.label }}
+            </p>
+
+            <h2 class="featured-title">{{ featured.title }}</h2>
+            <p class="featured-desc">{{ featured.description }}</p>
+
+            <div class="featured-meta">
+              <span>{{ featured.duration }}</span>
+              <span class="meta-dot" aria-hidden="true"></span>
+              <span>{{ featured.level }}</span>
+              <span class="meta-dot" aria-hidden="true"></span>
+              <span>бесплатно</span>
+            </div>
+
+            <ul class="tags">
+              {% for tag in featured.tags %}
+                <li>{{ tag }}</li>
+              {% endfor %}
+            </ul>
+
+            <a class="btn btn-primary" href="{{ featured.url }}" target="_blank" rel="noopener noreferrer">
+              Открыть материал
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <!-- Пример диалога с ИИ — просто красивая иллюстрация -->
+          <div class="prompt-demo" aria-hidden="true">
+            <div class="demo-bar">
+              <span></span><span></span><span></span>
+              <em>{{ featured.source }}</em>
+            </div>
+
+            <div class="demo-body">
+              <div class="demo-msg">
+                <span class="demo-avatar demo-avatar-user">Вы</span>
+                <p>Объясни, как работает нейросеть, за три предложения. Без терминов.</p>
+              </div>
+
+              <div class="demo-msg">
+                <span class="demo-avatar demo-avatar-ai">AI</span>
+                <p>
+                  Она учится на примерах: миллионы текстов помогают ей замечать, какое
+                  слово обычно идёт следом. В ответ на вопрос она собирает самое
+                  вероятное продолжение. Поэтому звучит уверенно — даже когда ошибается.
+                </p>
+              </div>
+            </div>
+
+            <div class="demo-typing">
+              <i></i><i></i><i></i>
+              <span>проверьте факты</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= ДАЙДЖЕСТ ================= -->
+    <section class="digest" id="digest">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-label"><span aria-hidden="true">01</span> Дайджест</p>
+            <h2>Девять материалов,<br>с которых стоит начать</h2>
+          </div>
+          <p class="section-note">
+            Все ссылки ведут на бесплатные первоисточники.<br>
+            Мы не получаем комиссию за переходы.
+          </p>
+        </div>
+
+        <!-- Кнопки-фильтры. Работают на JavaScript, без перезагрузки. -->
+        <div class="filters reveal">
+          <div class="filter-group" role="group" aria-label="Фильтр материалов по типу">
+            {% for category in categories %}
+              <button
+                class="filter{% if loop.first %} is-active{% endif %}"
+                type="button"
+                data-filter="{{ category.slug }}"
+                aria-pressed="{{ 'true' if loop.first else 'false' }}"
+              >
+                {{ category.title }}
+                <span class="filter-count">{{ category.count }}</span>
+              </button>
+            {% endfor %}
+          </div>
+
+          <p class="filter-status" aria-live="polite">
+            Показано <span id="visibleCount">{{ materials|length }}</span> из {{ materials|length }}
+          </p>
+        </div>
+
+        <div class="cards" id="cardsGrid">
+          {% for item in materials %}
+            <article
+              class="card reveal accent-{{ item.accent }}"
+              data-category="{{ item.category }}"
+              style="--delay: {{ (loop.index0 % 3) * 70 }}ms"
+            >
+              <div class="card-top">
+                <span class="chip">{{ item.category_title }}</span>
+                <span class="card-num">{{ "%02d"|format(loop.index) }}</span>
+              </div>
+
+              <h3 class="card-title">{{ item.title }}</h3>
+              <p class="card-desc">{{ item.description }}</p>
+
+              <ul class="tags">
+                {% for tag in item.tags %}
+                  <li>{{ tag }}</li>
+                {% endfor %}
+              </ul>
+
+              <div class="card-footer">
+                <span class="card-meta">{{ item.duration }} · {{ item.level }}</span>
+                <a class="card-link" href="{{ item.url }}" target="_blank" rel="noopener noreferrer">
+                  Открыть материал
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+
+        <p class="empty-state" id="emptyState" hidden>
+          Здесь пока пусто. Выберите другой фильтр.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= МАРШРУТ ================= -->
+    <section class="route" id="route">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-label"><span aria-hidden="true">02</span> Маршрут новичка</p>
+            <h2>Три шага, чтобы<br>перестать бояться</h2>
+          </div>
+          <p class="section-note">
+            Не нужно учиться программировать,<br>
+            чтобы пользоваться ИИ. Достаточно любопытства.
+          </p>
+        </div>
+
+        <div class="steps">
+          <article class="step reveal accent-lime" style="--delay: 0ms">
+            <span class="step-num">01</span>
+            <h3>Выберите один инструмент</h3>
+            <p>
+              ChatGPT, Claude или Gemini. Не все сразу: месяц в одном чате полезнее,
+              чем десять аккаунтов, в которых вы были дважды.
+            </p>
+          </article>
+
+          <article class="step reveal accent-cyan" style="--delay: 80ms">
+            <span class="step-num">02</span>
+            <h3>Дайте ему свою задачу</h3>
+            <p>
+              Не «напиши текст», а «сократи моё письмо клиенту до пяти строк,
+              сохранив даты». Чем конкретнее запрос, тем меньше нужно переделывать.
+            </p>
+          </article>
+
+          <article class="step reveal accent-pink" style="--delay: 160ms">
+            <span class="step-num">03</span>
+            <h3>Проверяйте факты</h3>
+            <p>
+              ИИ уверенно ошибается. Даты, цифры, имена и ссылки всегда сверяйте
+              с первоисточником. Это не недоверие — это гигиена.
+            </p>
+          </article>
+        </div>
+
+        <p class="route-quote reveal">
+          «ИИ — это собеседник, а не оракул. <span>Спрашивайте, спорьте, проверяйте.</span>»
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= ПОДПИСКА ================= -->
+    <section class="subscribe" id="subscribe">
+      <div class="container">
+        <div class="subscribe-panel reveal">
+          <div class="subscribe-copy">
+            <p class="section-label"><span aria-hidden="true">03</span> Подписка</p>
+            <h2>Один выпуск в неделю.<br><span class="grad-text">Пять минут — и вы в теме.</span></h2>
+            <p>
+              Новый инструмент, один приём и одна ошибка, которую лучше не повторять.
+              Без «ИИ заменит всех» и рекламы курсов.
+            </p>
+          </div>
+
+          <div class="subscribe-action">
+            <form class="subscribe-form" action="{{ url_for('subscribe') }}" method="post">
+              <label class="sr-only" for="email">Ваш email</label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              >
+              <button class="btn btn-primary" type="submit">Подписаться</button>
+            </form>
+
+            <p class="form-note">
+              Демо-режим: адрес сохранится в файл <code>subscribers.txt</code>
+              на вашем компьютере. Никаких писем и передачи данных.
+            </p>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% for category, message in messages %}
+                <p class="flash flash-{{ category }}" role="status">{{ message }}</p>
+              {% endfor %}
+            {% endwith %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= ПОДВАЛ ================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="НЕЙРОСТАРТ — на главную">
+          <span class="brand-mark">AI</span>
+          <span class="brand-name">нейростарт</span>
+        </a>
+        <p>Дайджест для тех, кто начинает — и не хочет утонуть в терминах.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#digest">Дайджест</a>
+        <a href="#route">Маршрут</a>
+        <a href="#subscribe">Подписка</a>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© {{ year }} НЕЙРОСТАРТ · учебный проект на Flask</span>
+        <span>Материалы принадлежат их авторам</span>
+        <a href="#top">Наверх ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

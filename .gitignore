@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+subscribers.txt
+.venv/
+venv/
+.env
